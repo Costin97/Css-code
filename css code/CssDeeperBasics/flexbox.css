@@ -1,0 +1,39 @@
+/*INFORMATII*/
+
+/*FLEX CONTAINER*/
+
+/*display:flex de obicei se pune la parinte,copii fiind flex items*/
+/*daca am display:flex,pot aplica justify-content,align-content,align-items,
+iar pentru copii order,flex,align-self*/
+/*cand am display:flex pe parinte,copiii+parintele se vor comporta ca si cum ar avea display:inline-block
+daca micsoram pagina,width-ul se va micsora pana va atinge content-ul,nu mai mult*/
+/*display:inline-flex va determina ca size-ul sa nu se modifice*/
+/*main axis si cross axis depinde de ce flex-direction avem,main merge pe linie(stanga dreapta/dreapta stanga),cross pe coloana(sus jos/jos sus)(pt row si row-reverse)
+pentru flex-direction:column/column-reverse (main de sus in jos,cross stanga dreapta/invers)*/
+/*align-items:center-->centreaza elementele pe cross axis*/
+/*align-items:flex-start-->aliniaza axele la incepitul axei cross/pt flex-end este invers*/
+/*justify-content:center-->aliniaza elementele pe axa main*/
+/*align-content:center--> va tine elemenetele grupate,in centru,dupa axa cross /*
+
+/*FLEX ITEMS*/
+
+/*order-->va pozitiona elementul,e asemator cu z-index,il va pozitiona in functie de ce au si celelalte elemente
+cel mai mare order va fi la final(flex-direction:row),cel mai mic la inceput
+acestea depinde de MAIN AXIS,cel mai mic va fi mereu la inceput,cel mai mare la final*/
+/*align-self va pozitiona elementul in functie de CROSS AXIS(se vor pune valori gen baseline,flex-start etc,nu cifre)*/
+
+/*flex-grow(default este 0),in functie de valoarea pe care o are,isi va putea creste width-ul,la fel depind de ce valori au celelalte elemente din flex box
+un element cu flex-grow mai mare va creste mai repede decat unul care il are mai mic dar diferit de 0
+si se distribuie,adica daca pt unul am 4 si unul am 1,ala cu 1 o sa creasca 1/5,celalalt 4/5 */
+
+/*flex-shrink depinde tot asa de ce elemente au restul elementelor,determina elementele sa si micsoreze width-ul(daca e diferit de 0),
+DAR daca un element are flex-shrink-ul mai mare decat altul,cel cu el mai mic se va micsora mai mult decat cel cu el mai mare */
+
+/*flex-basis defineste size-ul unui element in functie de MAIN axis,dar nu reprezinta width-ul/hight-ul
+daca am row,va da overwrite la width,
+pt column,va da overwrite la height
+flex-basis:auto(asta este default-ul),va lua ca valoare fallback-ul pe care il are,adica: height-ul/width-ul(in functie de ce directie am)*/
+
+/*SCURTATURA*/
+
+/*flex:flex:grow flex:shrink flex:basis*/

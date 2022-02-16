@@ -1,0 +1,283 @@
+#product-overview {
+  /* background-image: url("freedom.jpg ") left 10% bottom 20% / cover no-repeat; */
+  background-image: linear-gradient(
+      to top,
+      rgba(90, 68, 18, 0.6) 10%,
+      transparent
+    ),
+    url("images/freedom.jpg ");
+  /* background-image: linear-gradient(
+    red,
+    blue
+  ); primul e culoarea de sus,a doua cea de jos,se ia in ordinea de sus in jos */
+  /* background-image: radial-gradient(
+    red,
+    blue
+  ); incepe cu prima culoare si dupa tranzitioneaza la urmatoarea,e in forma de elipsa */
+  background-size: cover;
+  /*cover isi da seama care parte width/hight este importanta,o va seta la 100%,iar pe cealalta o va pune auto,se asigura ca tot containerul este acoperit*/
+  /*contain se va asigura ca vom avem toata imaginea in container,nu doar o parte cropped*/
+  /* background-position: left 10% bottom 70%; prima valoare se refera la left,a doua la top */
+  /*daca pun procente,se vor referi la cat sa fie cropped din partea stanga astfel incat sa intre ce e in dreapta,iar la fel si pentru top,ca sa intre ce e in bottom*/
+  /*daca pun left si right,ma refer la unde sa fie aliniat,daca pun left inseamna ca borderul din stanga o sa fie in stanga,la fel si cu restul*/
+  /*daca combin left cu procente ma refer cat sa fie taiat din stanga,ca sa se incadreze mai mult dreapta,la fel si la restul*/
+  background-position: center;
+  background-repeat: no-repeat;
+  background-clip: border-box;
+  /* padding: 10px; */
+  /* border: 5px black solid; */
+  /* margin: 10px; */
+  width: 100vw;
+  height: 33vh; /*33% din viewport height*/
+  position: relative;
+  margin-top: 3.5rem;
+  /*folosesc box-sizing ca sa am inaltimea de 528px in total cu tot cu padding si border */
+}
+
+#product-overview h1 {
+  color: rgb(255, 255, 255);
+  font-family: "Anton", sans-serif;
+  position: absolute;
+  bottom: 0px;
+  font-size: 1.6rem;
+  margin: 0;
+}
+
+@media (min-width: 40rem) {
+  /*atunci cand width-ul device-ul nostru este >= decat min-width atunci intru in media query*/
+  /*te gandesti ca vrei ca atunci ca width-ul este mai mare sau egal cu 40 vrei sa ai o alta dim de text,deci media query intra in aciune*/
+  #product-overview {
+    height: 40vh;
+    background-position: left 50% top 25%;
+    /* max-width: 50%; */
+    /* background-position: center; */
+  }
+  #product-overview h1 {
+    font-size: 2rem;
+  }
+}
+
+/*pot folosi orientation:portrait sau altceva ca si conditie in media*/
+
+@media (min-width: 60rem) {
+  /*atunci cand width-ul device-ul nostru este >= decat min-width atunci intru in media query*/
+  /*te gandesti ca vrei ca atunci ca width-ul este mai mare sau egal cu 40 vrei sa ai o alta dim de text,deci media query intra in aciune*/
+  #product-overview {
+    height: 50vh;
+    background-position: 50% 25%;
+  }
+  #product-overview h1 {
+    font-size: 3rem;
+  }
+}
+
+/*IMPORTANT PT MEDIA QUERY!!!
+
+-se citeste ca si un if state
+in cazul meu daca am minim 40rem width atunci intru in media
+-daca am mai multe,nu isi vor da overwrite automat,decat daca nu cumva am aceeasi conditie,daca se intampla asta se va aplica regula ultimului media(se aplica doar ce e specificat acolo)
+Cum stii unde sunt aceste breaking points,unde schimbi dimensiunile?
+mydevice.io/comparedevices,urmaresti width-ul si height-ul CSS de la cele mai comune devices
+te uiti la cele mai comune tlf(intre 300 si 700 width)dupa tableta(700+ width) dupa pc (etc.)
+-TREBUIE puse la finalul codului,pentru ca ceilalti dev sa poate vedea si structura la randul lor codul
+
+*/
+.section-title {
+  color: #2ddf5c;
+  text-align: center;
+}
+
+.plan {
+  background-color: #d5ffdc;
+  text-align: center;
+  padding: 16px;
+  margin: 8px 0px;
+  width: 100%;
+  /* vertical-align: middle; */
+}
+
+.plan--highlighted {
+  background-color: #19b84c;
+  color: white;
+}
+
+.plan__annotation {
+  background-color: white;
+  color: #19b84c;
+  padding: 8px;
+  box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.5);
+  border-radius: 12px;
+}
+
+.plan__title {
+  color: #0e4f1f;
+}
+
+.plan__price {
+  color: #858585;
+}
+
+.plan--highlighted .plan__title {
+  color: white;
+}
+
+.plan--highlighted .plan__price {
+  color: #0e4f1f;
+}
+.plan__features {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.plan__features li {
+  margin: 8px 0px;
+}
+
+@media (min-width: 40rem) {
+  .plan {
+    width: 30%;
+    min-width: 12.8rem;
+    max-width: 20rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 28rem;
+  }
+
+  .plan__list {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /*margin: auto merge doar pt block elements cu width specificat*/
+    /* text-align: center; */
+  }
+
+  /* .plan__annotation {
+  } */
+
+  .plan--highlighted {
+    box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.5);
+    height: 30rem; /*axa x axa y bluriness spread color*/
+    z-index: 5;
+  }
+}
+
+/*, tine locul de ||*/
+
+#key-features {
+  background-color: #ff1b68;
+  margin-top: 80px;
+  padding: 16px;
+}
+
+#key-features .section-title {
+  color: white;
+  margin: 32px;
+}
+
+.key-feature__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+/* .key-feature {
+  display: inline-block;
+  width: 33%;
+  margin: auto;
+  vertical-align: top;
+} */
+
+.key-feature__image {
+  background-color: #ffcede;
+  border-radius: 50%;
+  width: 128px;
+  height: 128px;
+  border: 2px solid #424242;
+  margin: auto; /*il centreaza orizontal pe mijloc*/
+  padding: 20px;
+}
+
+.key-feature__description {
+  text-align: center;
+  font-weight: bold;
+  color: white;
+  font-size: 20px;
+}
+
+@media (min-width: 40rem) {
+  .key-feature {
+    width: 30%;
+    max-width: 20rem;
+  }
+
+  .key-feature__list {
+    display: flex;
+    justify-content: center;
+  }
+}
+
+.modal {
+  position: fixed;
+  display: none;
+  z-index: 200;
+  top: 20%;
+  left: 30%;
+  width: 40%;
+  background: white;
+  padding: 1rem;
+  border: 1px solid #ccc;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+}
+
+.modal__title {
+  text-align: center;
+  margin: 0 0 1rem 0;
+}
+
+.modal__actions {
+  text-align: center;
+}
+
+.modal__action {
+  border: 1px solid #0e4f1f;
+  background: #0e4f1f;
+  text-decoration: none;
+  color: white;
+  font: inherit;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+}
+
+.modal__action:hover,
+.modal__action:active {
+  background: #2ddf5c;
+  border-color: #2ddf5c;
+}
+
+.modal__action--negative {
+  background: red;
+  border-color: red;
+}
+
+.modal__action--negative:hover,
+.modal__action--negative:active {
+  background: #ff5454;
+  border-color: #ff5454;
+}
+
+.open {
+  display: block;
+}
+
+/*ii da overwrite celei de deasupra pentru ca este dupa ea*/
+
+/* cand position-ul este fixed,marimile se refera la view port,se vor modifica odata cu modificarea (dimensiunii) ecranului*/
+/* cand position-ul este absolute,marimile se refera la containing block,stramosul+content+padding care are position-ul schimbat SAU ecranul+content+ daca am asemenea stramos*/
+/* cand position-ul este relative||static,marimile se refera la stramosul+content-ul care este BLOCK nu INLINE */
+/* pentru relative || static la element si parinte 100% height nu va merge,varianta este fixed/absolute sau folosim vh vw SAU punem in html height:100% si in body:100% pentru ca height ul nu este pus by default,este determinat de content*/
+
+/*mobile phone e de la 650 px width in jos*/

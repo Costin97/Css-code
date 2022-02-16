@@ -1,0 +1,142 @@
+@font-face {
+  font-family: "AnonymousPro";
+  src: url("./FontImports/anonymousPro-Regular.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "AnonymousPro";
+  src: url("./FontImports/anonymousPro-Bold.ttf") format("truetype")
+    /*asta e cel default truetype(ttf),vezi pe 'Can i use'*/;
+  font-weight: 700;
+  /*ca sa poate folosi font-weight-ul pe care il presupune acest font-face trebuie adaugat explicit*/
+  font-display: block;
+  /*vezi pe mdn font-display*/
+}
+/*ca sa poti face asta trebuie sa descarci fisierul cu font-uri din google fonts*/
+
+.background {
+  background: url("../images/plans-background.jpg") center/cover;
+  filter: grayscale(50%);
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  z-index: -1; /*nu merge daca nu am prop position schimbata,negativ sa stea in spate,pozitiv sa dea in fata*/
+  /*daca vreau sa am element peste ceva vreau sa am z-index mai mare,la fel si pt negative,vreau sa fie mai mic*/
+  /*conteaza si ordinea in care sunt puse in html file,daca au acelasi z-index*/
+}
+
+.main-section {
+  border: 4px solid black;
+  border-left: none;
+  margin: 16px 0;
+  /*margin:1rem 0;*/
+  width: 80%;
+  position: relative;
+  top: 30px;
+}
+
+.main-section:hover,
+.main-section:active {
+  border-color: red;
+  box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.5);
+}
+
+.crearfix {
+  clear: both;
+} /*elementele ce vin dupa acesta,nu vor respecta float-urile,e ca si cum spatiul ala e inca ocupat*/
+
+.main-section__bk1 {
+  background-color: rgb(191, 245, 191);
+}
+
+.main-section__bk2 {
+  background-color: rgb(204, 241, 204);
+  float: right;
+  border-right: none;
+  border-left: 4px solid black;
+  /*  border-left: 0.25rem solid black; DAR NU ESTE FOARTE RECOMANDAT,LA FEL SI LA BOX-SHADOW*/
+  text-align: right;
+}
+
+.main-section__bk3 {
+  background-color: #0e4f1f;
+}
+
+.main-section a {
+  text-decoration: none;
+  display: block;
+  padding: 16px;
+  /*padding:1rem*/
+  color: black;
+}
+
+.package__badge {
+  position: absolute;
+  /*cu absolute elementul se refera la corpul cel mai apropiat care are position-ul schimbat,daca nu este niciunul,se va referi la corpul html +scoate elementul din flow indiferent*/
+  /*cu relative nu caut niciun stramos,pur si simplu pot sa modific pozitia,nu il scaote din flow*/
+  /*in cazul in care cu relative scot elementul din parintele sau,pot sa pun proprietatea overflow:hidden pe parinte ca sa dispara*/
+  /*pt ca overflow sa mearga si pe body,trebuie sa punem proprietatea de overflow si pe html */
+  /*cu sticky avem o combinatie intre relative si fixed,daca adaug top de exemplu,elementul se va comporta ca fiind fixed din momentul in care viewport-ul(ce vad eu pe ecran) atinge distanta specificata in top,si se opreste cand atinge sfarsitul parintelui sau*/
+  /*z-index-ul si diferentele dintre valori se vor aplica doar pentru elementele ce au acelasi parinte,de ex nu am cum sa aduc un element al unui parinte peste un alt element al altui parinte,daca cel de-al doilea este in html dupa primul*/
+  top: -10px;
+  right: 0px;
+  margin: 20px;
+  font-size: 12px;
+  /*font-size:0.75rem*/
+  color: white;
+  background-color: #ff5454;
+  padding: 8px;
+}
+
+.main-section__title {
+  color: black;
+}
+
+.main-section__3rdtitle {
+  color: white;
+}
+
+.main-section__secondtitle {
+  color: rgb(139, 137, 137);
+}
+
+.main-section__para {
+  border: 2px solid black;
+  /* border:0.125 solid black*/
+  padding: 16px;
+  /*padding:1rem*/
+  /* margin: 16px; */
+  color: black;
+  background-color: white;
+  /* font-size: 20px; */
+  /*font-size:1.25rem*/
+  /* font-family: "Roboto", sans-serif; */
+  /* font-weight: 900; */
+  /* font-style: italic; */
+  /* font-family: "AnonymousPro", sans-serif; */
+  /*pentru asta nu pot sa folosesc font-weight pt ca am dat import doar la cel regular,deci nu stie sa faca si pt cele cu bold,
+  ASADAR trebuie importate*/
+  /* font-weight: 700; */
+  /*cat de bolduit e,sau pot face asta importam un font-face mai bold-uit din google fonts,punand la final :400 si ce font-wight mai vreau,400 fiind default*/
+
+  /* line-height: 2; distanta dintre top si bottom of our content box */
+
+  text-decoration: underline wavy red; /*vezi mai multe cautand despre text-decoration,in principiu se folosesc line-through,overline,underline*/
+
+  text-shadow: 2px 2px 7px gray; /*pe axa x,dupa axa y(dimensiunea),blur,culoare*/
+
+  font: italic small-caps 700 20px/2 "AnonymousPro", sans-serif;
+  /*font shorthand:
+  font-style font-weight font-variant font-size/line-height font-family*/
+  /*fara font font-size fi font-family nu se va aplica*/
+  /*small-caps,toate literele mici devin litere de tipar*/
+
+  /*mai putem folosi font:menu,sa arate ceva default ca de menu/font:status-bar etc*/
+}
+
+@media (min-width: 40rem) {
+  .main-section {
+    margin: 3rem 0;
+    max-width: 1500px;
+  }
+}
